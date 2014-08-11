@@ -103,19 +103,23 @@ containing a value of this type.
         public static final int write=0x7f020025;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000c;
-        public static final int del=0x7f090009;
+        public static final int action_settings=0x7f090010;
+        public static final int del=0x7f09000d;
         public static final int leftLayout=0x7f090007;
+        public static final int leftMenu=0x7f090009;
+        public static final int leftMenuList=0x7f09000a;
+        public static final int leftMenuTitle=0x7f090008;
         public static final int leftbutton=0x7f090001;
         public static final int listlayout=0x7f090005;
         public static final int listview=0x7f090006;
         public static final int mainLayout=0x7f090004;
+        public static final int menuItemName=0x7f09000b;
         public static final int rightbutton=0x7f090003;
-        public static final int src=0x7f090008;
-        public static final int text=0x7f09000b;
+        public static final int src=0x7f09000c;
+        public static final int text=0x7f09000f;
         public static final int title=0x7f090002;
         public static final int titlebar=0x7f090000;
-        public static final int xtab_layout=0x7f09000a;
+        public static final int xtab_layout=0x7f09000e;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -123,9 +127,10 @@ containing a value of this type.
         public static final int main_init=0x7f030002;
         public static final int page1=0x7f030003;
         public static final int page2=0x7f030004;
-        public static final int ximage=0x7f030005;
-        public static final int xtab=0x7f030006;
-        public static final int xtabitem=0x7f030007;
+        public static final int page2_leftmenu_item=0x7f030005;
+        public static final int ximage=0x7f030006;
+        public static final int xtab=0x7f030007;
+        public static final int xtabitem=0x7f030008;
     }
     public static final class menu {
         public static final int init=0x7f080000;

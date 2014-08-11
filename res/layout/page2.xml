@@ -78,9 +78,10 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/leftMenuTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="5dip"
@@ -88,7 +89,26 @@
                 android:text="侧滑菜单"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
-
+			
+            <RelativeLayout 
+                android:id="@+id/leftMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/leftMenuTitle"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip">
+                <ListView
+                android:id="@+id/leftMenuList"
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_margin="10sp"
+	                android:layout_weight="1"
+	                android:cacheColorHint="#00000000"
+	                android:divider="@drawable/sp" >
+	            </ListView>
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>
