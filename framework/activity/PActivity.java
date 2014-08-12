@@ -12,6 +12,7 @@ import object.JsonObject;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import singleton.ActivityCollection;
 import utils.JSONUtil;
 import adapter.DataAdapter;
 import android.app.Activity;
@@ -133,6 +134,9 @@ OnItemClickListener,OnItemLongClickListener,OnTabChangeListener,OnCheckedChangeL
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		ActivityCollection activityCollection = ActivityCollection.getInstance();
+		activityCollection.addActivity(this);
 	}
 	
 	/**
@@ -588,5 +592,10 @@ OnItemClickListener,OnItemLongClickListener,OnTabChangeListener,OnCheckedChangeL
 	 */
 	private void errAlert(Exception e){
 		alert("´íÎó",errMsg(e.getClass().getName()));
+	}
+	
+	protected void exit(){
+		ActivityCollection activityCollection = ActivityCollection.getInstance();
+		activityCollection.exit();
 	}
 }

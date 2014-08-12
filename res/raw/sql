@@ -1,0 +1,15 @@
+drop table hf_news;
+create table if not exists hf_news(
+	news_id varchar(25) primary key,
+	news varchar(128),
+	name varchar(15),
+	picture  varchar(128),
+	remote varchar(1)
+);
+
+delete from hf_news;
+insert into hf_news values('1','今天 天气好','黎明','123','1');
+insert into hf_news values('2','今天 天气好','黎明','123','1');
+insert into hf_news values('3','今天 天气好','黎明','123','1');
+insert into hf_news values('4','今天 天气好','黎明','123','1');
+insert into hf_news values('5','今天 天气好','黎明','123','1');

@@ -15,7 +15,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class Page2 extends PActivity {
-	private ListView listview,leftMenuList;
+	private ListView leftMenuList;
+	private ListView mainList;
 	private RelativeLayout mainLayout;
 	private RelativeLayout leftLayout;
 	private boolean leftLayoutIsOpen = false;
@@ -25,6 +26,7 @@ public class Page2 extends PActivity {
 		this.leftMenuList.setOnItemClickListener(this);
 		
 		resize();//隐藏侧滑栏
+		loadMainList();
 		loadLeftMenu();
 	}
 	
@@ -40,6 +42,18 @@ public class Page2 extends PActivity {
 		leftLayout.setLayoutParams(params);
 	}
 
+	private void loadMainList() {
+		String key = "name";
+		ArrayList<Map<String,String>> values = new ArrayList<Map<String,String>>();
+		for(int i=0;i<10;i++){
+			Map<String,String> value = new HashMap<String,String>();
+			value.put(key, "李民");
+			values.add(value);
+		}
+		SimpleAdapter mainData = new SimpleAdapter(this,values,R.layout.page2_mainlist_item,new String[]{},new int[]{});
+		this.mainList.setAdapter(mainData);
+	}
+	
 	private void loadLeftMenu() {
 		String key = "menuName";
 		ArrayList<Map<String,String>> values = new ArrayList<Map<String,String>>();
@@ -122,8 +136,7 @@ public class Page2 extends PActivity {
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
-		//android.os.Process.killProcess(android.os.Process.myPid());    //获取PID
-		System.exit(0);   //常规java、c#的标准退出法，返回值为0代表正常退出
+		this.exit();
 	}
 
 }
