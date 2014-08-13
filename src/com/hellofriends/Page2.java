@@ -9,7 +9,9 @@ import android.os.AsyncTask;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -19,6 +21,7 @@ public class Page2 extends PActivity {
 	private ListView mainList;
 	private RelativeLayout mainLayout;
 	private RelativeLayout leftLayout;
+	private PopupWindow writeWindow;
 	private boolean leftLayoutIsOpen = false;
 	@Override
 	protected void init() throws Exception {
@@ -111,7 +114,31 @@ public class Page2 extends PActivity {
 					move(values[0]);
 				}
 			});
+		}else if(viewId==R.id.rightbutton){
+			showWritenWindow(view);
+		}else if(viewId==R.id.submitBtn){
+			EditText et = (EditText)this.writeWindow.getContentView().findViewById(R.id.editText);
+			et.setText("");
+			this.writeWindow.dismiss();
 		}
+	}
+
+	private void showWritenWindow(View view) {
+		if(this.writeWindow==null){
+			createWritenWindow();
+		}
+		
+		this.writeWindow.setFocusable(true);
+		this.writeWindow.showAsDropDown(view);
+		System.out.println("is showing");
+	}
+
+	private void createWritenWindow() {
+		View view = this.getLayoutInflater().inflate(R.layout.page2_writenwindow, null);
+		view.findViewById(R.id.submitBtn).setOnClickListener(this);
+		this.writeWindow = new PopupWindow(view,this.mainLayout.getWidth(),R.dimen.page2_writenwindow_height);
+		//this.writeWindow.setAnimationStyle(R.style.PopupAnimation);
+		this.writeWindow.setClippingEnabled(true);
 	}
 
 	private void leftDeamon(AsyncTask<Integer, Integer, Void> task) {
