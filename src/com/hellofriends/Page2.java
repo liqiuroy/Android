@@ -1,11 +1,23 @@
 package com.hellofriends;
 
+import http.SyncHttp;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import object.JsonObject;
+
+import org.apache.http.client.ClientProtocolException;
+import org.json.JSONException;
+
+import utils.JSONUtil;
 import activity.PActivity;
 import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +27,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import data.I;
 
 public class Page2 extends PActivity {
 	private ListView leftMenuList;
@@ -23,6 +36,7 @@ public class Page2 extends PActivity {
 	private RelativeLayout leftLayout;
 	private PopupWindow writeWindow;
 	private boolean leftLayoutIsOpen = false;
+	private Handler syncHandler;
 	@Override
 	protected void init() throws Exception {
 		this.leftMenuList.setOnScrollListener(this);
@@ -117,10 +131,32 @@ public class Page2 extends PActivity {
 		}else if(viewId==R.id.rightbutton){
 			showWritenWindow(view);
 		}else if(viewId==R.id.submitBtn){
-			EditText et = (EditText)this.writeWindow.getContentView().findViewById(R.id.editText);
-			et.setText("");
-			this.writeWindow.dismiss();
+			subContent();
 		}
+	}
+
+	private void subContent() throws ClientProtocolException, IOException {
+		final EditText et = (EditText)this.writeWindow.getContentView().findViewById(R.id.editText);
+		final String content = et.getText().toString();
+		this.syncHandler = new Handler(){
+			@Override
+			public void handleMessage(Message msg) {
+				super.handleMessage(msg);
+				Bundle bundle = msg.getData();
+				try {
+					JsonObject jo = JSONUtil.toJsonObject(bundle.getString("rst"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				et.setText("");
+				writeWindow.dismiss();
+			}
+		};
+		SyncHttp syncHttp = new SyncHttp(I.SAVE_TIMELINE,new String[]{content},this.syncHandler);
+		//syncHttp.start();
+		//this.http.get(I.SAVE_TIMELINE,new String[]{content});
+		//et.setText("");
+		//this.writeWindow.dismiss();
 	}
 
 	private void showWritenWindow(View view) {
