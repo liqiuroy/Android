@@ -10,7 +10,6 @@ import java.util.Map;
 import object.JsonObject;
 
 import org.apache.http.client.ClientProtocolException;
-import org.json.JSONException;
 
 import utils.JSONUtil;
 import activity.PActivity;
@@ -41,6 +40,7 @@ public class Page2 extends PActivity {
 	protected void init() throws Exception {
 		this.leftMenuList.setOnScrollListener(this);
 		this.leftMenuList.setOnItemClickListener(this);
+		this.mainList.setOnItemClickListener(this);
 		
 		resize();//Òþ²Ø²à»¬À¸
 		loadMainList();
@@ -101,6 +101,9 @@ public class Page2 extends PActivity {
 			long id) throws Exception {
 		if(parent.getId()==R.id.leftMenuList){
 			this.alert("TEST",((TextView)(view.findViewById(R.id.menuItemName))).getText().toString());
+		}
+		else if(parent.getId()==R.id.mainList){
+			this.to(Page3.class);
 		}
 	}
 

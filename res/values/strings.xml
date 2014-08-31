@@ -5,4 +5,5 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 	<string name="page2_title">首页</string>
+	<string name="page3_title">时间线</string>
 </resources>

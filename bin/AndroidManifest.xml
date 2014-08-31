@@ -33,6 +33,7 @@
         </activity>
         <activity android:name=".Page1" android:theme="@android:style/Theme.NoTitleBar" android:launchMode="singleTask"/>
         <activity android:name=".Page2" android:theme="@android:style/Theme.NoTitleBar" android:launchMode="singleTask"/>
+        <activity android:name=".Page3" android:theme="@android:style/Theme.NoTitleBar" android:launchMode="singleTask"/>
     </application>
 
 </manifest>

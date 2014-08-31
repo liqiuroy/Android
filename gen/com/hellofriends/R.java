@@ -104,8 +104,8 @@ containing a value of this type.
         public static final int write=0x7f020025;
     }
     public static final class id {
-        public static final int action_settings=0x7f090014;
-        public static final int del=0x7f090011;
+        public static final int action_settings=0x7f090015;
+        public static final int del=0x7f090012;
         public static final int editText=0x7f09000e;
         public static final int leftLayout=0x7f090006;
         public static final int leftMenu=0x7f090008;
@@ -119,12 +119,13 @@ containing a value of this type.
         public static final int news=0x7f09000c;
         public static final int picture=0x7f09000b;
         public static final int rightbutton=0x7f090003;
-        public static final int src=0x7f090010;
+        public static final int src=0x7f090011;
         public static final int submitBtn=0x7f09000f;
-        public static final int text=0x7f090013;
+        public static final int text=0x7f090014;
         public static final int title=0x7f090002;
         public static final int titlebar=0x7f090000;
-        public static final int xtab_layout=0x7f090012;
+        public static final int xtab_layout=0x7f090013;
+        public static final int xylayout=0x7f090010;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -135,9 +136,10 @@ containing a value of this type.
         public static final int page2_leftmenu_item=0x7f030005;
         public static final int page2_mainlist_item=0x7f030006;
         public static final int page2_writenwindow=0x7f030007;
-        public static final int ximage=0x7f030008;
-        public static final int xtab=0x7f030009;
-        public static final int xtabitem=0x7f03000a;
+        public static final int page3=0x7f030008;
+        public static final int ximage=0x7f030009;
+        public static final int xtab=0x7f03000a;
+        public static final int xtabitem=0x7f03000b;
     }
     public static final class menu {
         public static final int init=0x7f080000;
@@ -152,6 +154,7 @@ containing a value of this type.
         public static final int app_name=0x7f060000;
         public static final int hello_world=0x7f060002;
         public static final int page2_title=0x7f060003;
+        public static final int page3_title=0x7f060004;
     }
     public static final class style {
         /** 
