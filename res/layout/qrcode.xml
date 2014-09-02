@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	
+    <!-- 主界面 -->
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff000" >
+
+        <RelativeLayout
+            android:id="@+id/titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#ffffff" >
+
+            <ImageView
+                android:id="@+id/leftbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="二维码生成"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+        </RelativeLayout>
+        
+       	<LinearLayout
+       	    android:id="@+id/inputbar"
+       	    android:layout_width="match_parent"
+       	    android:layout_height="50dp"
+       	    android:layout_below="@id/titlebar"
+       	    android:orientation="horizontal"
+       	    android:padding="5dp" >
+
+            <EditText
+                android:id="@+id/telphone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:contentDescription="请输入手机号"
+                android:editable="true"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+               <Button
+                   android:id="@+id/btn_create"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="3"
+                   android:text="生成" />
+
+           </LinearLayout>
+
+           <ImageView
+               android:id="@+id/img_qrcode"
+               android:layout_width="250dp"
+               android:layout_height="250dp"
+               android:layout_below="@+id/inputbar"
+               android:layout_centerHorizontal="true"
+               android:layout_marginTop="68dp" />
+
+    </RelativeLayout>
+</RelativeLayout>

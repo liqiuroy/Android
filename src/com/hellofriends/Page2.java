@@ -11,6 +11,8 @@ import object.JsonObject;
 
 import org.apache.http.client.ClientProtocolException;
 
+import com.test.QRCodeActivity;
+
 import utils.JSONUtil;
 import activity.PActivity;
 import android.os.AsyncTask;
@@ -74,7 +76,7 @@ public class Page2 extends PActivity {
 	private void loadLeftMenu() {
 		String key = "menuName";
 		ArrayList<Map<String,String>> values = new ArrayList<Map<String,String>>();
-		String[] strs = {"首页","朋友","个人详情","系统设置","联系我们"};
+		String[] strs = {"首页","朋友","个人详情","系统设置","联系我们","二维码","业务办理"};
 		for(String s : strs){
 			Map<String,String> value = new HashMap<String,String>();
 			value.put(key, s);
@@ -100,10 +102,18 @@ public class Page2 extends PActivity {
 	protected void itemClick(AdapterView<?> parent, View view, int position,
 			long id) throws Exception {
 		if(parent.getId()==R.id.leftMenuList){
-			this.alert("TEST",((TextView)(view.findViewById(R.id.menuItemName))).getText().toString());
+			String textName = ((TextView)(view.findViewById(R.id.menuItemName))).getText().toString();
+			this.alert("TEST",textName);
+			menuClick(textName);
 		}
 		else if(parent.getId()==R.id.mainList){
 			this.to(Page3.class);
+		}
+	}
+
+	private void menuClick(String textName) {
+		if("二维码".equals(textName)){
+			this.to(QRCodeActivity.class);
 		}
 	}
 
