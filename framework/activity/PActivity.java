@@ -19,6 +19,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Camera;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -73,6 +74,11 @@ OnItemClickListener,OnItemLongClickListener,OnTabChangeListener,OnCheckedChangeL
 	 */
 	protected MediaRecorder mRecorder;
 	protected MediaPlayer mPlayer;
+	
+	/**
+	 * 摄像头
+	 */
+	protected Camera mCamera;
 	
 	/**
 	 * 记录ListView当前item下标
@@ -518,7 +524,7 @@ OnItemClickListener,OnItemLongClickListener,OnTabChangeListener,OnCheckedChangeL
 	
 	/**
 	 * 该方法不能被子类重写，
-	 * 可以通过重写tabChangedL来达到同样的效果
+	 * 可以通过重写tabChanged来达到同样的效果
 	 */
 	@Override
 	public final void onTabChanged(String arg0) {
